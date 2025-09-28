@@ -1,4 +1,8 @@
+// import { camelCase } from 'lodash-es';
+const { camelCase } = require('lodash');
+
 const message = 'welcome to the Context.ts page!';
+const messageInCamelCase = camelCase(message);
 
 export const mainContent = `<!DOCTYPE html>
 <html lang="en">
@@ -24,7 +28,7 @@ export const mainContent = `<!DOCTYPE html>
   </head>
   <body>
     <h1>Info Site</h1>
-    <p>Hi, <span> ${message}</span></p>
+    <p>Hi, <span> ${messageInCamelCase}</span></p>
   </body>
 </html>
 `;
