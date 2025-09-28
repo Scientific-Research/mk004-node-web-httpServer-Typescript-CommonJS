@@ -1,9 +1,9 @@
 // import http from 'http';
 // import * as http from 'http';
 
-const http = require('http');
+import http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
-const { mainContent } = require('./content');
+import { mainContent } from './content';
 
 const port = 8000;
 
