@@ -1,0 +1,20 @@
+{
+  "name": "mk004-node-web-server",
+  "version": "1.0.0",
+  "main": "server.ts",
+  "scripts": {
+    "watch-server": "nodemon --watch server.ts --watch content.ts --exec \"tsc -P tsconfig.json\"",
+    "run-server": "nodemon dist/server.js",
+    "dev-server": "concurrently \"npm:watch-server\" \"npm:run-server\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2"
+  }
+}
