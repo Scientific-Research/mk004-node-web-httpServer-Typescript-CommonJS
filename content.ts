@@ -1,3 +1,5 @@
+const message = 'welcome to the Context.ts page!';
+
 export const mainContent = `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,12 +12,19 @@ export const mainContent = `<!DOCTYPE html>
         color: #ddd;
         font-family: sans-serif;
         padding: 0 1rem;
+
+        p{
+          span{
+            color:yellow;
+            font-size:large
+          }
+        }
       }
     </style>
   </head>
   <body>
     <h1>Info Site</h1>
-    <p>Welcome to this site!</p>
+    <p>Hi, <span> ${message}</span></p>
   </body>
 </html>
 `;
