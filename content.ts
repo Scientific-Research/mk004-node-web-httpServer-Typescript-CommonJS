@@ -1,5 +1,5 @@
 // import { camelCase } from 'lodash-es';
-const { camelCase } = require('lodash');
+import { camelCase } from 'lodash';
 
 const message = 'welcome to the Context.ts page!';
 const messageInCamelCase = camelCase(message);
