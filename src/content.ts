@@ -1,5 +1,12 @@
 // import { camelCase } from 'lodash-es';
 import { camelCase } from 'lodash';
+import axios from 'axios';
+
+interface Verb {
+  article: string;
+  singualr: string;
+  plural: string;
+}
 
 const message = 'welcome to the Context.ts page!';
 const messageInCamelCase = camelCase(message);
