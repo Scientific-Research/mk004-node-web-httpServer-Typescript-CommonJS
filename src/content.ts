@@ -8,12 +8,6 @@ interface Noun {
   plural: string;
 }
 
-// const noun = {
-//   article: '',
-//   singualr: '',
-//   plural: '',
-// };
-
 const url = 'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
 // const options = {
@@ -25,33 +19,14 @@ const url = 'https://edwardtanguay.vercel.app/share/germanNouns.json';
 // };
 
 let nouns: Noun[] = [];
-let nouns2: Noun[] = [];
-
-let isDataAvailable = false;
 
 export const loadNouns = async () => {
   nouns = (await axios.get(url)).data;
-  // console.log(nouns);
-  if (nouns !== null) {
-    isDataAvailable = true;
-    console.log(isDataAvailable);
-  }
   return nouns;
 };
 
 loadNouns();
 
-// setTimeout(() => {
-//   nouns2 = nouns;
-//   console.log(nouns2);
-//   isDataAvailable = true;
-//   console.log(isDataAvailable);
-// }, 500);
-
-// if (isDataAvailable) {
-//   console.log(isDataAvailable);
-//   console.log(nouns2);
-// }
 const message = 'welcome to the Context.ts page!';
 const messageInCamelCase = camelCase(message);
 
@@ -89,10 +64,9 @@ setTimeout(() => {
               .map((noun) => {
                 return `<div class="noun">
             <div class="singular">${noun.article} ${noun.singular}</div>
-      </div>`;
+                        </div>`;
               })
               .join('')}
-        
         </body>
         </html>
         `;
