@@ -1,4 +1,3 @@
-// import { camelCase } from 'lodash-es';
 import { camelCase } from 'lodash';
 import axios from 'axios';
 
@@ -10,39 +9,12 @@ interface Noun {
 
 const url = 'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
-// const options = {
-//   method: 'GET',
-//   url: url,
-//   headers: {
-//     'Accept-Encoding': 'application/json',
-//   },
-// };
+export async function generateMainContent() {
+  const nouns = (await axios.get(url)).data;
+  const message = 'welcome to the Context.ts page!';
+  const messageInCamelCase = camelCase(message);
 
-let nouns: Noun[] = [];
-
-// export const loadNouns = async () => {
-//   nouns = (await axios.get(url)).data;
-//   return nouns;
-// };
-
-// loadNouns();
-
-// using IIFE => Immediately Invoked Function Expression
-(async () => {
-  try {
-    nouns = (await axios.get(url)).data;
-  } catch (error) {
-    console.error('Fehler beim Laden der Nouns:', error);
-  }
-})();
-
-const message = 'welcome to the Context.ts page!';
-const messageInCamelCase = camelCase(message);
-
-let mainContent = '';
-
-setTimeout(() => {
-  mainContent = `<!DOCTYPE html>
+  return `<!DOCTYPE html>
   <html lang="en">
   <head>
   <meta charset="UTF-8" />
@@ -52,14 +24,14 @@ setTimeout(() => {
   body {
     background-color: #333;
     color: #ddd;
-        font-family: sans-serif;
-        padding: 0 1rem;
-        
-        p{
-          span{
-            color:yellow;
-            font-size:large
-            }
+    font-family: sans-serif;
+    padding: 0 1rem;
+    
+    p{
+      span{
+        color:yellow;
+        font-size:large
+        }
             }
             }
             </style>
@@ -70,15 +42,13 @@ setTimeout(() => {
             <p>Hi, <span> ${messageInCamelCase}</span></p>
             <h2>Nouns</h2>
             ${nouns
-              .map((noun) => {
+              .map((noun: Noun) => {
                 return `<div class="noun">
-            <div class="singular">${noun.article} ${noun.singular}</div>
-                        </div>`;
+                <div class="singular">${noun.article} ${noun.singular}</div>
+                </div>`;
               })
               .join('')}
-        </body>
-        </html>
-        `;
-}, 500);
-
-export { mainContent };
+              </body>
+              </html>
+              `;
+}
