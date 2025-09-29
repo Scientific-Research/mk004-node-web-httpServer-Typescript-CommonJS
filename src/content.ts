@@ -20,12 +20,17 @@ const url = 'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
 let nouns: Noun[] = [];
 
-export const loadNouns = async () => {
-  nouns = (await axios.get(url)).data;
-  return nouns;
-};
+// export const loadNouns = async () => {
+//   nouns = (await axios.get(url)).data;
+//   return nouns;
+// };
 
-loadNouns();
+// loadNouns();
+
+// using IIFE => Immediately Invoked Function Expression
+(async () => {
+  nouns = (await axios.get(url)).data;
+})();
 
 const message = 'welcome to the Context.ts page!';
 const messageInCamelCase = camelCase(message);
