@@ -29,7 +29,11 @@ let nouns: Noun[] = [];
 
 // using IIFE => Immediately Invoked Function Expression
 (async () => {
-  nouns = (await axios.get(url)).data;
+  try {
+    nouns = (await axios.get(url)).data;
+  } catch (error) {
+    console.error('Fehler beim Laden der Nouns:', error);
+  }
 })();
 
 const message = 'welcome to the Context.ts page!';
