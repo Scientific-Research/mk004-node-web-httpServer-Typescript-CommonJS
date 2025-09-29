@@ -41,12 +41,12 @@ export const loadNouns = async () => {
 
 loadNouns();
 
-setTimeout(() => {
-  nouns2 = nouns;
-  console.log(nouns2);
-  isDataAvailable = true;
-  console.log(isDataAvailable);
-}, 500);
+// setTimeout(() => {
+//   nouns2 = nouns;
+//   console.log(nouns2);
+//   isDataAvailable = true;
+//   console.log(isDataAvailable);
+// }, 500);
 
 // if (isDataAvailable) {
 //   console.log(isDataAvailable);
@@ -85,17 +85,13 @@ setTimeout(() => {
             <p>Welcome to this infor Site!</p>
             <p>Hi, <span> ${messageInCamelCase}</span></p>
             <h2>Nouns</h2>
-            ${
-              isDataAvailable
-                ? nouns2
-                    .map((noun) => {
-                      return `<div class="noun">
+            ${nouns
+              .map((noun) => {
+                return `<div class="noun">
             <div class="singular">${noun.article} ${noun.singular}</div>
       </div>`;
-                    })
-                    .join('')
-                : 'nnnn'
-            }
+              })
+              .join('')}
         
         </body>
         </html>
