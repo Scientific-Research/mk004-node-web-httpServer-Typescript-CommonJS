@@ -9,8 +9,15 @@ interface Noun {
 
 const url = 'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
+let nouns: Noun[] = [];
+
 export const generateMainContent = async () => {
-  const nouns = (await axios.get(url)).data;
+  try {
+    nouns = (await axios.get(url)).data;
+  } catch (error) {
+    console.log('Fehler beim Laden der Nouns:', error);
+  }
+
   const message = 'welcome to the Context.ts page!';
   const messageInCamelCase = camelCase(message);
 

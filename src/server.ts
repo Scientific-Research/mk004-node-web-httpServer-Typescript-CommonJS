@@ -7,11 +7,10 @@ import { generateMainContent } from './content.js';
 
 const port = 8000;
 
-(async () => {
-  const html = await generateMainContent();
-
+(() => {
   http
-    .createServer((req: IncomingMessage, res: ServerResponse) => {
+    .createServer(async (req: IncomingMessage, res: ServerResponse) => {
+      const html = await generateMainContent(); // HTML bei jedem Request neu generieren
       res.writeHead(200, { 'Content-Type': 'text/html' });
       // res.write('info site');
       res.write(html);
