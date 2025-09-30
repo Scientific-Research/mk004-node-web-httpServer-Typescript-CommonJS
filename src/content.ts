@@ -9,7 +9,7 @@ interface Noun {
 
 const url = 'https://edwardtanguay.vercel.app/share/germanNouns.json';
 
-export async function generateMainContent() {
+export const generateMainContent = async () => {
   const nouns = (await axios.get(url)).data;
   const message = 'welcome to the Context.ts page!';
   const messageInCamelCase = camelCase(message);
@@ -51,4 +51,4 @@ export async function generateMainContent() {
               </body>
               </html>
               `;
-}
+};
