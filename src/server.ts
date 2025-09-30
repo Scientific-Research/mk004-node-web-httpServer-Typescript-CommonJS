@@ -3,7 +3,7 @@
 
 import http from 'http';
 import { IncomingMessage, ServerResponse } from 'http';
-import { generateMainContent } from './content.js';
+import { generateMainContent } from './content';
 
 const port = 8000;
 
